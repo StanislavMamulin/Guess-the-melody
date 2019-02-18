@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,147 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Guess_the_melody" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9sZ-0f-yK0" userLabel="Topic Stack">
+                                <rect key="frame" x="0.0" y="28" width="375" height="76"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Тема:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1je-cM-AVe">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8Q-7g-HDv">
+                                        <rect key="frame" x="0.0" y="27.5" width="375" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Трек ... из ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynp-e1-TIj" userLabel="Track number">
+                                        <rect key="frame" x="0.0" y="57.5" width="375" height="18.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="aoA-o3-KSw"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHP-hH-D7B">
+                                <rect key="frame" x="166" y="611" width="193" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Следующяя мелодия"/>
+                                <connections>
+                                    <action selector="nextTrack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0B1-Cb-AHY"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="oz3-D4-nYc" userLabel="Song Stack">
+                                <rect key="frame" x="16" y="248" width="343" height="123.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nfQ-wU-bDj" userLabel="Artist Stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="52.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Артист:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1e-Cx-qEr">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UG-EL-u3Q">
+                                                <rect key="frame" x="0.0" y="28.5" width="343" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zjU-Gg-Eyv" userLabel="Track Stack">
+                                        <rect key="frame" x="0.0" y="69.5" width="343" height="54"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Песня:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRT-dG-Rji">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcd-Vc-JVY">
+                                                <rect key="frame" x="0.0" y="28.5" width="343" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QustionMario" translatesAutoresizingMaskIntoConstraints="NO" id="XEq-nK-b81">
+                                <rect key="frame" x="137.5" y="128" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Fj4-cK-QOr"/>
+                                    <constraint firstAttribute="height" constant="100" id="RMa-jD-IWi"/>
+                                    <constraint firstAttribute="width" secondItem="XEq-nK-b81" secondAttribute="height" multiplier="1:1" id="U7D-jc-ENB"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tf8-Jw-Yf4" userLabel="Play Check">
+                                <rect key="frame" x="76.5" y="469" width="222" height="126"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzi-AF-rZz">
+                                        <rect key="frame" x="78.5" y="0.0" width="65" height="84"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                        <state key="normal" title="⏯"/>
+                                        <connections>
+                                            <action selector="playPauseWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="baH-sd-OJ7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13w-SD-MnM">
+                                        <rect key="frame" x="0.0" y="84" width="222" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Проверить догадку"/>
+                                        <connections>
+                                            <action selector="checkTheAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tj8-l6-PIX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oz3-D4-nYc" secondAttribute="trailing" constant="16" id="1b4-3g-GOh"/>
+                            <constraint firstItem="oz3-D4-nYc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="4K7-Dq-i7T"/>
+                            <constraint firstItem="Tf8-Jw-Yf4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7pA-8c-DDk"/>
+                            <constraint firstItem="qHP-hH-D7B" firstAttribute="top" secondItem="Tf8-Jw-Yf4" secondAttribute="bottom" constant="16" id="ADw-pr-77E"/>
+                            <constraint firstItem="oz3-D4-nYc" firstAttribute="top" secondItem="XEq-nK-b81" secondAttribute="bottom" constant="20" id="BX7-nS-XqM"/>
+                            <constraint firstItem="9sZ-0f-yK0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ccl-4x-qFa"/>
+                            <constraint firstItem="XEq-nK-b81" firstAttribute="top" secondItem="9sZ-0f-yK0" secondAttribute="bottom" constant="24" id="GpV-lB-Nfa"/>
+                            <constraint firstItem="9sZ-0f-yK0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="RUI-DQ-Yqf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qHP-hH-D7B" secondAttribute="trailing" constant="16" id="UJx-LC-C5n"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qHP-hH-D7B" secondAttribute="bottom" constant="20" id="baG-s4-5lk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9sZ-0f-yK0" secondAttribute="trailing" id="fYW-cF-1Gk"/>
+                            <constraint firstItem="XEq-nK-b81" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mZ7-pc-3kR"/>
+                            <constraint firstItem="qHP-hH-D7B" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="166" id="tCN-44-zsn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="artistLabel" destination="0UG-EL-u3Q" id="Yla-97-IsL"/>
+                        <outlet property="artworkImageView" destination="XEq-nK-b81" id="kfw-C4-GYh"/>
+                        <outlet property="checkAnswerButton" destination="13w-SD-MnM" id="wj2-Lm-rHV"/>
+                        <outlet property="playPause" destination="Lzi-AF-rZz" id="f3j-gJ-DRK"/>
+                        <outlet property="topicLabel" destination="X8Q-7g-HDv" id="K9q-5N-iVu"/>
+                        <outlet property="trackLabel" destination="Xcd-Vc-JVY" id="fcZ-mQ-CfE"/>
+                        <outlet property="trackNumberLabel" destination="ynp-e1-TIj" id="6RN-ju-VN9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="QustionMario" width="564" height="564"/>
+    </resources>
 </document>
